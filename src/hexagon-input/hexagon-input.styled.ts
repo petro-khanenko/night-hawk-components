@@ -1,10 +1,14 @@
 import { Field } from 'formik';
 import styled from "@emotion/styled";
 import { Grid, Theme } from "@mui/material";
-import Border from '../../../../assets/icons/inputBorder.svg';
-import BorderError from '../../../../assets/icons/inputBorderError.svg';
-import BigBorder from '../../../../assets/icons/input-big-border.svg';
-import BigBorderError from '../../../../assets/icons/input-big-border-error.svg';
+// @ts-ignore
+import Border from '../assets/icons/inputBorder.svg';
+// @ts-ignore
+import BorderError from '../assets/icons/inputBorderError.svg';
+// @ts-ignore
+import BigBorder from '../assets/icons/input-big-border.svg';
+// @ts-ignore
+import BigBorderError from '../assets/icons/input-big-border-error.svg';
 
 
 export const InputContainer = styled(Grid)<{ disabled?: boolean | undefined; error?: boolean; theme?: Theme }>`

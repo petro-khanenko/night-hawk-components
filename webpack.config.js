@@ -10,10 +10,10 @@ module.exports = {
         clean: true
     },
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     externals: {
-        react: 'react'
+        react: 'react',
     },
     module: {
         rules: [
@@ -24,8 +24,17 @@ module.exports = {
             {
                 test: /\.(ts|tsx)?$/,
                 use: ['ts-loader'],
-                exclude: /node_modules/
-            }
+            },
+            {oneOf: [
+                    {
+                        test: /\.svg$/,
+                        type: "asset/inline",
+                    },
+                    {
+                        test: /\.(jpg|png|svg)$/,
+                        type: "asset/resource",
+                    },
+                ]},
         ],
     }
 }

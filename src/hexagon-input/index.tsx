@@ -1,12 +1,11 @@
 /* eslint-disable react/no-unused-prop-types */
-import { getIn, useFormikContext } from "formik";
 import React from "react";
 
-import { Styled } from "./form-input.styled";
+import { Styled } from "./hexagon-input.styled";
 import { Grid } from "@mui/material";
 import * as GlobalTypography from "../global-typography";
 
-export interface IFormInputProps {
+export interface IHexagonInputProps {
 	text?: string;
 	name: string;
 	type: string;
@@ -15,29 +14,34 @@ export interface IFormInputProps {
 	min?: number;
 	label?: string;
 	isEdit?: boolean;
+	isErrorExists?: boolean;
+	errorText?: string;
 	maxLength?: number;
 	disabled?: boolean | undefined;
 	passedValue: string;
 	isBig?: boolean;
 	isOptional?: boolean;
 	subLabel?: string;
+	onChange?: Function;
 }
 
-export const FormInput: React.FC<IFormInputProps> = ({
+export const HexagonInput: React.FC<IHexagonInputProps> = ({
 	name,
 	type,
 	placeholder,
 	step,
+	isErrorExists,
+	errorText,
 	min,
 	maxLength,
 	disabled,
 	passedValue,
 	label,
 	isBig,
-	subLabel
+	subLabel,
+	onChange
 }) => {
-	const { values, handleChange, errors, touched } = useFormikContext();
-	const isErrorExists = getIn(errors, name) && getIn(touched, name);
+
 	const RenderInputContainer = isBig ? Styled.InputLargeContainer : Styled.InputContainer;
 	const RenderInput = isBig ? Styled.LargeInput : Styled.Input;
 
@@ -73,8 +77,8 @@ export const FormInput: React.FC<IFormInputProps> = ({
 					type={type}
 					min={min || 0.01}
 					step={step}
-					onChange={handleChange(name)}
-					value={getIn(values, name) || passedValue}
+					onChange={onChange}
+					value={passedValue}
 					placeholder={placeholder}
 					maxLength={maxLength}
 					disabled={disabled}
@@ -82,7 +86,7 @@ export const FormInput: React.FC<IFormInputProps> = ({
 			</RenderInputContainer>
 			{isErrorExists && (
 				<Styled.ErrorInfoContainer>
-					<Styled.ErrorInfoText>{getIn(errors, name)}</Styled.ErrorInfoText>
+					<Styled.ErrorInfoText>{errorText}</Styled.ErrorInfoText>
 				</Styled.ErrorInfoContainer>
 			)}
 		</Grid>
