@@ -77,6 +77,7 @@ export const HexagonInput: React.FC<IHexagonInputProps> = ({
             >
                 <Styled.InputPrefix/>
                 <RenderInput
+                    // @ts-ignore
                     theme={theme}
                     id={name}
                     name={name}
