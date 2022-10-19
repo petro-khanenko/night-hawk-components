@@ -11,12 +11,12 @@ import BigBorder from '../assets/icons/input-big-border.svg';
 import BigBorderError from '../assets/icons/input-big-border-error.svg';
 
 
-export const InputContainer = styled(Grid)<{ disabled?: boolean | undefined; error?: boolean; theme?: Theme }>`
+export const InputContainer = styled(Grid)<{ theme?: Theme }>`
 	position: relative;
 	background-repeat: no-repeat;
 	min-height: 50px;
 	margin-bottom: ${({theme}) => theme.spacing(1)};
-	background-image: ${(props) => (props.error ? `url(${BorderError})` : `url(${Border})`)};
+	background-image: url(${Border});
 	min-width: 275px;
 `;
 
