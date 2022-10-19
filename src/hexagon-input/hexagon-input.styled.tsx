@@ -1,3 +1,4 @@
+import React from 'react';
 import { Field } from 'formik';
 import styled from "@emotion/styled";
 import { Grid, Theme } from "@mui/material";
@@ -11,12 +12,16 @@ import BigBorder from '../assets/icons/input-big-border.svg';
 import BigBorderError from '../assets/icons/input-big-border-error.svg';
 
 
-export const InputContainer = styled(Grid)<{ theme?: Theme }>`
+const FormField = React.forwardRef((props, ref) => (
+	<Field {...props} ref={ref} />
+));
+
+export const InputContainer = styled(Grid)<{ disabled?: boolean | undefined; error?: boolean; theme?: Theme }>`
 	position: relative;
 	background-repeat: no-repeat;
 	min-height: 50px;
 	margin-bottom: ${({theme}) => theme.spacing(1)};
-	background-image: url(${Border});
+	background-image: ${(props) => (props.error ? `url(${BorderError})` : `url(${Border})`)};
 	min-width: 275px;
 `;
 
@@ -35,7 +40,7 @@ export const InputPrefix = styled.div`
 	padding-left: 20px;
 `;
 
-export const Input = styled(Field)<{theme?: Theme}>`
+export const Input = styled(FormField)<{theme?: Theme}>`
 	background-color: transparent;
 	border: none;
 	min-width: 230px;
