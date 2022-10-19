@@ -45,7 +45,19 @@ export const HexagonInput: React.FC<IHexagonInputProps> = ({
                                                                theme
                                                            }) => {
 
-    const RenderInputContainer = isBig ? Styled.InputLargeContainer : Styled.InputContainer;
+    // const RenderInputContainer = isBig ? Styled.InputLargeContainer : Styled.InputContainer;
+    const RenderInputContainer: any = isBig
+        ? React.forwardRef((props, ref) => <Styled.InputLargeContainer
+            {...props}
+            // @ts-ignore
+            ref={ref}/>
+        )
+        // @ts-ignore
+        : React.forwardRef((props, ref) => <Styled.InputContainer
+            {...props}
+            // @ts-ignore
+            ref={ref}/>
+        );
     const RenderInput = isBig ? Styled.LargeInput : Styled.Input;
 
     return (
@@ -67,7 +79,6 @@ export const HexagonInput: React.FC<IHexagonInputProps> = ({
                 }
             </Grid>
             <RenderInputContainer
-                // @ts-ignore
                 theme={theme}
                 direction='column'
                 justifyContent='center'
