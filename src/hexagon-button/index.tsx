@@ -3,7 +3,7 @@ import { ButtonContainer } from "./hexagon-button.styled";
 import React from "react";
 import {Theme} from "@mui/material";
 
-interface IHexagonBtn {
+interface IHexagonButton {
 	title: string;
 	variant?: 'outlined' | 'filled';
 	disabled?: boolean;
@@ -12,7 +12,7 @@ interface IHexagonBtn {
 	theme?: Theme;
 }
 
-export const HexagonBtn: React.FC<IHexagonBtn> = ({
+export const HexagonButton: React.FC<IHexagonButton> = ({
 	title,
 	variant,
 	disabled,
