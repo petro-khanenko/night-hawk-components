@@ -40,7 +40,7 @@ export const HexagonSelect: React.FC<IHexagonSelectProps> = ({
 				}
 			</Grid>
 
-			<Styled.SelectContainer error={isErrorExists} disabled={disabled}>
+			<Styled.SelectContainer theme={theme} error={isErrorExists} disabled={disabled}>
 				{ children }
 			</Styled.SelectContainer>
 		</Grid>
