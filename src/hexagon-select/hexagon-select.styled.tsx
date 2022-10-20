@@ -3,9 +3,11 @@ import styled from "@emotion/styled";
 import { Grid, Theme } from "@mui/material";
 import Select from "@mui/material/Select";
 import { TiArrowSortedDown } from "react-icons/ti";
-import BigBorder from "../../../../assets/icons/input-big-border.svg";
-import BigBorderError from "../../../../assets/icons/input-big-border-error.svg";
-import { COLORS } from "../../../theme";
+// @ts-ignore
+import BigBorder from "../assets/icons/input-big-border.svg";
+// @ts-ignore
+import BigBorderError from "../assets/icons/input-big-border-error.svg";
+import {COLORS} from "../consts/colors";
 
 const ArrowIcon: React.FC<any> = React.forwardRef((props, ref) => (
 	<TiArrowSortedDown

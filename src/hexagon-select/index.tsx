@@ -3,7 +3,7 @@ import {Styled} from "./hexagon-select.styled";
 import {Grid, Theme} from "@mui/material";
 import * as GlobalTypography from "../global-typography";
 
-export interface IFormSelectProps {
+export interface IHexagonSelectProps {
 	name: string;
 	label?: string;
 	disabled?: boolean | undefined;
@@ -13,7 +13,7 @@ export interface IFormSelectProps {
 	children: ReactNode;
 }
 
-export const FormSelect: React.FC<IFormSelectProps> = ({
+export const HexagonSelect: React.FC<IHexagonSelectProps> = ({
 	disabled,
 	isErrorExists,
 	label,
