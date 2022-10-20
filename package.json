@@ -21,6 +21,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "css-to-mui-loader": "^2.0.2",
+    "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "react": "^17.0.2",
@@ -37,9 +38,9 @@
     "@emotion/styled": "^11.0.0",
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "react-icons": "^4.0.0",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-icons": "^4.0.0"
   },
   "files": [
     "dist"

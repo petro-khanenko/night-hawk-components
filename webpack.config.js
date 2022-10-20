@@ -35,6 +35,17 @@ module.exports = {
                         type: "asset/resource",
                     },
                 ]},
+            {
+                test: /\.(jpg|JPG|png|gif|GIF|svg|SVG|ttf|woff|woff2|eot)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name].[ext]'
+                        }
+                    }
+                ]
+            }
         ],
     }
 }
