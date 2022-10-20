@@ -29,19 +29,23 @@ module.exports = {
                     {
                         test: /\.svg$/,
                         type: "asset/inline",
-                    }
-                ]},
-            {
-                test: /\.(jpg|JPG|png|gif|GIF|ttf|woff|woff2|eot)$/,
-                use: [
+                    },
                     {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'asset/images/[name].[ext]'
-                        }
-                    }
-                ]
-            }
+                        test: /\.(png|jpg|jpeg|gif)$/i,
+                        type: 'asset/resource',
+                    },
+                ]},
+            // {
+            //     test: /\.(jpg|JPG|png|gif|GIF|ttf|woff|woff2|eot)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: 'asset/images/[name].[ext]'
+            //             }
+            //         }
+            //     ]
+            // }
         ],
     }
 }
