@@ -4,7 +4,6 @@ import {Grid, Theme} from "@mui/material";
 import * as GlobalTypography from "../global-typography";
 
 export interface IHexagonSelectProps {
-	name: string;
 	label?: string;
 	disabled?: boolean | undefined;
 	isErrorExists?: boolean | undefined;
