@@ -2,8 +2,8 @@
 import React, {ReactNode} from "react";
 
 import {Styled} from "./hexagon-input.styled";
-import {Grid} from "@mui/material";
-import {Theme} from "@emotion/react";
+import {Grid, Theme} from "@mui/material";
+
 import * as GlobalTypography from "../global-typography";
 
 export interface IHexagonInputProps {
@@ -37,14 +37,14 @@ export const HexagonInput: React.FC<IHexagonInputProps> = ({
             <Grid container alignItems='center' justifyContent='space-between' pl='1.5rem' pr='2rem'>
                 {
                     label && (
-                        <GlobalTypography.Text variant="body2" colorVariant="secondary" fontWeight='fontWeightMedium'>
+                        <GlobalTypography.Text variant="body2" colorVariant={theme?.palette.secondary.main} fontWeight='fontWeightMedium'>
                             {label}
                         </GlobalTypography.Text>
                     )
                 }
                 {
                     subLabel && (
-                        <GlobalTypography.Text variant="body2" colorVariant="secondary">
+                        <GlobalTypography.Text variant="body2" colorVariant={theme?.palette.secondary.main}>
                             {subLabel}
                         </GlobalTypography.Text>
                     )
