@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unused-prop-types */
-import React from "react";
+import React, {ReactNode} from "react";
 
 import {Styled} from "./hexagon-input.styled";
 import {Grid} from "@mui/material";
@@ -7,46 +7,30 @@ import {Theme} from "@emotion/react";
 import * as GlobalTypography from "../global-typography";
 
 export interface IHexagonInputProps {
-    text?: string;
-    name: string;
-    type: string;
-    placeholder?: string;
-    step?: number;
-    min?: number;
     label?: string;
-    isEdit?: boolean;
     isErrorExists?: boolean;
     errorText?: string;
-    maxLength?: number;
     disabled?: boolean | undefined;
-    passedValue: string;
     isBig?: boolean;
     isOptional?: boolean;
     subLabel?: string;
     onChange?: Function;
     theme?: Theme;
+    children: ReactNode;
 }
 
 export const HexagonInput: React.FC<IHexagonInputProps> = ({
-                                                               name,
-                                                               type,
-                                                               placeholder,
-                                                               step,
                                                                isErrorExists,
                                                                errorText,
-                                                               min,
-                                                               maxLength,
                                                                disabled,
-                                                               passedValue,
                                                                label,
                                                                isBig,
                                                                subLabel,
-                                                               onChange,
-                                                               theme
+                                                               theme,
+                                                               children
                                                            }) => {
 
     const RenderInputContainer = isBig ? Styled.InputLargeContainer : Styled.InputContainer;
-    const RenderInput = isBig ? Styled.LargeInput : Styled.Input;
 
     return (
         <Grid container direction='column' justifyContent='center' alignItems='center'>
@@ -76,20 +60,7 @@ export const HexagonInput: React.FC<IHexagonInputProps> = ({
                 disabled={disabled}
             >
                 <Styled.InputPrefix/>
-                <RenderInput
-                    // @ts-ignore
-                    theme={theme}
-                    id={name}
-                    name={name}
-                    type={type}
-                    min={min || 0.01}
-                    step={step}
-                    onChange={onChange}
-                    value={passedValue}
-                    placeholder={placeholder}
-                    maxLength={maxLength}
-                    disabled={disabled}
-                />
+                { children }
             </RenderInputContainer>
             {isErrorExists && (
                 // @ts-ignore

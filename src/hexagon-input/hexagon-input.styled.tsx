@@ -1,5 +1,4 @@
 import React from 'react';
-import { Field } from 'formik';
 import styled from "@emotion/styled";
 import { Grid, Theme } from "@mui/material";
 // @ts-ignore
@@ -11,10 +10,6 @@ import BigBorder from '../assets/icons/input-big-border.svg';
 // @ts-ignore
 import BigBorderError from '../assets/icons/input-big-border-error.svg';
 
-
-const FormField = React.forwardRef((props, ref) => (
-	<Field {...props} ref={ref} />
-));
 
 export const InputContainer = styled(Grid)<{ disabled?: boolean | undefined; error?: boolean; theme?: Theme }>`
 	position: relative;
@@ -40,39 +35,6 @@ export const InputPrefix = styled.div`
 	padding-left: 20px;
 `;
 
-export const Input = styled(FormField)<{theme?: Theme}>`
-	background-color: transparent;
-	border: none;
-	min-width: 230px;
-	min-height: 35px;
-	margin-top: ${({theme}) => theme.spacing(1)};
-	margin-left: ${({theme}) => theme.spacing(3)};
-	outline: none;
-
-	::placeholder {
-		color: ${({theme}) => theme.palette.secondary.main};
-		opacity: 0.85;
-	}
-
-	&:-webkit-autofill {
-		min-height: 35px;
-		box-shadow: ${({theme}) =>`0 0 0 30px ${theme.palette.common.white} inset !important`};
-	}
-	&:-webkit-autofill:hover {
-		min-height: 35px;
-		box-shadow: ${({theme}) =>`0 0 0 30px ${theme.palette.common.white} inset !important`};
-	}
-
-	&:-webkit-autofill:focus {
-		min-height: 35px;
-		box-shadow: ${({theme}) =>`0 0 0 30px ${theme.palette.common.white} inset !important`};
-	}
-`;
-
-export const LargeInput = styled(Input)`
-	min-width: 375px;
-`;
-
 export const ErrorInfoContainer = styled.div<{ errorJustifyContent?: string; theme?: Theme }>`
 	display: flex;
 	justify-content: flex-end;
@@ -92,8 +54,6 @@ export const Styled = {
 	InputContainer,
 	InputLargeContainer,
 	InputPrefix,
-	Input,
-	LargeInput,
 	ErrorInfoContainer,
 	ErrorInfoText,
 };
