@@ -36,12 +36,12 @@ module.exports = {
                     },
                 ]},
             {
-                test: /\.(jpg|JPG|png|gif|GIF|svg|SVG|ttf|woff|woff2|eot)$/,
+                test: /\.(jpg|JPG|png|gif|GIF|ttf|woff|woff2|eot)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'images/[name].[ext]'
+                            name: 'assets/images/[name].[ext]'
                         }
                     }
                 ]
