@@ -25,16 +25,16 @@ module.exports = {
                 test: /\.(ts|tsx)?$/,
                 use: ['ts-loader'],
             },
-            {oneOf: [
-                    {
-                        test: /\.svg$/,
-                        type: "asset/inline",
-                    },
+            // {oneOf: [
+            //         {
+            //             test: /\.svg$/,
+            //             type: "asset/inline",
+            //         },
                     {
                         test: /\.(jpg|png|svg)$/,
                         type: "asset/resource",
                     },
-                ]},
+                // ]},
         ],
     }
 }
